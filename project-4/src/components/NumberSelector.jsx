@@ -18,9 +18,15 @@ const NumberSelectorContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: end;
+  margin-right: 10px;
   .flex {
     display: flex;
     gap: 24px;
+  }
+  .error {
+    color: red;
+    font-weight: 800;
+    margin-bottom: 10px;
   }
   p {
     font-size: 24px;
@@ -28,18 +34,28 @@ const NumberSelectorContainer = styled.div`
   }
 `;
 
-const NumberSelector = () => {
+const NumberSelector = ({
+  selectedNumber,
+  setSelectedNumber,
+  checkSelected,
+  setCheckSelected,
+}) => {
   const array = [1, 2, 3, 4, 5, 6];
-  const [selectedNumber, setSelectedNumber] = useState();
+
+  const numberSelectorHandler = (item) => {
+    setSelectedNumber(item);
+    setCheckSelected("");
+  };
 
   return (
     <NumberSelectorContainer>
+      <p className="error">{checkSelected}</p>
       <div className="flex">
         {array.map((item, idx) => (
           <Box
             isSelected={item === selectedNumber}
             key={idx}
-            onClick={() => setSelectedNumber(item)}
+            onClick={() => numberSelectorHandler(item)}
           >
             {item}
           </Box>
