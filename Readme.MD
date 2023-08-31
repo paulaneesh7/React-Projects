@@ -1,7 +1,7 @@
 # React-Projects
 This repository contains various React projects for learning and practise purpose. 
 
-![React-Image](reactImg2.jpg)
+![React-Image](project-1/public/reactImg2.jpg)
 
 
 ## Project-List
